@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const fetchProducts = async () => {
+export const fetchProducts = async () => {
   try {
     const { data } = await axios.get("https://fakestoreapi.com/products");
     return data;
@@ -43,5 +43,6 @@ const page = async () => {
     </div>
   );
 };
+
 
 export default page;

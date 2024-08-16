@@ -2,6 +2,7 @@ import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { fetchProducts } from "../page";
 const fetchProduct = async (id) => {
   try {
     const { data } = await axios.get(`https://fakestoreapi.com/products/${id}`);
@@ -37,5 +38,10 @@ const ProductPage = async ({ params }) => {
     </div>
   );
 };
+
+export async function generateStaticParams() {
+  const productList = await fetchProducts();
+  return productList.map((product) => ({ id: product.id.toString() }));
+}
 
 export default ProductPage;
