@@ -21,8 +21,18 @@ const page = async () => {
       <div className="grid md:grid-cols-10 gap-4">
         {response.map((product) => (
           <div className="card flex flex-col gap-2" key={product.id}>
-            <Link href={`/ssg/${product.id}`} className="flex imgBox h-[100px] bg-purple-100 p-2">
-              <Image src={product.image} width="400" height="400" className="h-full w-full object-contain" />
+            <Link
+              href={`/ssg/${product.id}`}
+              className="flex imgBox h-[100px] bg-purple-100 p-2"
+            >
+              <Image
+                src={product.image}
+                width="400"
+                height="400"
+                className="h-full w-full object-contain"
+                property
+                layout="responsive"
+              />
             </Link>
             <div className="content">
               <h3>{product.title.substring(0, 15)}...</h3>
